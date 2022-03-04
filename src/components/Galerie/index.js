@@ -1,15 +1,25 @@
 import styled from "styled-components";
+import GridButton from "./GridButton";
 
 //const list = ["el1","el2","el3","el4"];
 
-export default function Home() {
+export default function Galerie() {
   //const {buttonsList} = useSounds();
   return (
     <Wrapper>
       <h1>
-        Page d'accueil
+        Galerie photos
       </h1>
 
+      {/* <Grid>
+        Page d'accueil */}
+        
+    {/*     {buttonsList.map(({}, index) => {
+          return (
+            <GridButton />);
+        })} */}
+        
+      {/* </Grid> */}
        
     </Wrapper>
   )

@@ -12,7 +12,10 @@ export default function Header() {
       </h1>
       <nav>
         <MenuEl isCurrentPage={location.pathname === "/"}><Link to="/">Home</Link></MenuEl>
-        <MenuEl isCurrentPage={location.pathname === "/about"}><Link to="/about">About</Link></MenuEl>
+        <MenuEl isCurrentPage={location.pathname === "/galerie"}><Link to="/galerie">Galerie</Link></MenuEl>
+        <MenuEl isCurrentPage={location.pathname === "/tarif"}><Link to="/tarif">Tarifs</Link></MenuEl>
+        <MenuEl isCurrentPage={location.pathname === "/contact"}><Link to="/contact">Contact</Link></MenuEl>
+        <MenuEl isCurrentPage={location.pathname === "/about"}><Link to="/about">A propos</Link></MenuEl>
       </nav>
 
         

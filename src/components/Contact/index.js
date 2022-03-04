@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export default function About() {
+export default function Contact() {
   return (
     <Wrapper>
       <h1>
-        A propos
+        Contact
       </h1>
       <p>
-        Projet guid&eacute;, r&eacute;alis&eacute; dans le cadre de la formation "Graduate Developper Full Stack" chez Digital Campus.
+        Formulaire contact
       </p>
     </Wrapper>
   )
