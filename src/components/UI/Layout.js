@@ -20,10 +20,10 @@ export default function Layout({children}) {
   }
 
   return <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
-          <Wrapper>
+          <Wrapper id="wrapper-avant-le-main">
             <GlobalStyle />
             <Header />
-            <Main>
+            <Main id="main">
               {children}
             </Main>
             <Footer isLight={isLight} handleToggleTheme={handleToggleTheme} />
