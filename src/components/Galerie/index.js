@@ -1,15 +1,40 @@
 import styled from "styled-components";
 import CardPhoto from "./CardPhoto";
+import CatButton from "./CatButton";
+
+// Utilisation de Contentful CMS
+import {useEffect, useState} from 'react';
+import useContentful from '../../useContentful';
 
 //const list = ["el1","el2","el3","el4"];
 
 export default function Galerie() {
   
+  const [isLoading, setIsLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+  const { getCategories } = useContentful();
+
+  useEffect(() => {
+    fetchCategories()
+  }, []);  
+
+  const fetchCategories = async () => {
+    const data = await getCategories();
+    setCategories(data);
+    setIsLoading(false);
+  }
+
   return (
     <Wrapper id="wrapper-galerie">
       <h1>
         Galerie photos
       </h1>
+
+<br/><br/><div>
+{isLoading ? "loading" : categories.map((cat,index) => <CatButton key={index} titre={cat.titre} />)}
+
+</div><br/><br/>
+
       <Grid>
         <CardPhoto id="1" url="uploads/bebe.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
         <CardPhoto id="1" url="uploads/couple.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
