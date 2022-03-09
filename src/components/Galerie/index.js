@@ -13,7 +13,7 @@ export default function Galerie() {
   const [isLoading, setIsLoading] = useState(true);
   const [photos, setPhotos] = useState([]);
   const { getPhotos } = useContentful();
-  
+  const[filtreCategories,setFiltreCategories] = useState("all");
 
   useEffect(() => {
     fetchPhotos()
@@ -32,6 +32,11 @@ export default function Galerie() {
     return tabCatOK;
   }
 
+  const handleFiltreCategorie = (e) => {
+    //console.log(e.target.value)
+    setFiltreCategories(e.target.value)
+  }
+
   return (
     <Wrapper id="wrapper-galerie">
       <h1>
@@ -40,24 +45,25 @@ export default function Galerie() {
 
 <br/><br/><div>
 
-{isLoading ? "loading" : console.log(tabCat())}
 
 
-{ isLoading ? "loading" : tabCat().map((cat,index) => <CatButton key={index} titre={cat} />) }
+<div>
+<button type="submit" key={"all"} onClick={handleFiltreCategorie} value="all">Tout</button>
+{ isLoading ? "loading" : tabCat().map((cat,index) => <button type="submit" key={index} value={cat} onClick={handleFiltreCategorie}>{cat}</button>) }
+
+</div>
 
 
 </div><br/><br/>
 
       <Grid>
-      {/* isLoading ? "loading" : photos.map((cat,index) => <CatButton key={index} titre={cat.categorie} />)  */}
-        { isLoading ? "loading" : console.log(photos) }
-        { isLoading ? "loading" : photos.map((obj,index) => <CardPhoto key={index} titre={obj.titre} url={obj.photo.fields.file.url} />) }
 
-        {/* <CardPhoto id="1" url="uploads/bebe.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
-        <CardPhoto id="1" url="uploads/couple.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
-        <CardPhoto id="1" url="uploads/famille.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
-        <CardPhoto id="1" url="uploads/grossesse.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
-        <CardPhoto id="1" url="uploads/mariage.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" /> */}
+        
+        { isLoading ? "loading" : photos.filter((i) => {
+          return filtreCategories === "all" ? i.titre !== "" : i.categorie[0] === filtreCategories 
+        }).map((obj,index) => <CardPhoto key={index} titre={obj.titre} url={obj.photo.fields.file.url} />) 
+        }
+
       </Grid>
 
        
