@@ -1,11 +1,12 @@
 import { createClient } from "contentful";
+import { SPACE_KEY, TOKEN_KEY } from "./secret.js";
 //accessToken: "GYfFIIpoNlxFXn8pPlZTA9ETAIGFjcRbM31RXLD8v74", // PRODUCTION
 //host: "cdn.contentful.com" // PRODUCTION
 
 const useContentful = () => {
   const client = createClient({
-    space: "cwvmuneq0mx7",
-    accessToken: "OZnKQNxDTZHvUFh9Ns4DOzIyiUKnAa_tqwQUeqpCsbQ",
+    space: SPACE_KEY,
+    accessToken: TOKEN_KEY,
     host: "preview.contentful.com"
   });
   
