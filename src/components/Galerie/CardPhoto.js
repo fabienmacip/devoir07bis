@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 export default function CardPhoto({id,url,titre}) {
   
@@ -8,9 +9,11 @@ export default function CardPhoto({id,url,titre}) {
       <div>
         <img src={url} alt={titre}/>
       </div>
-      <div>
-        {titre}
-      </div>
+      <Link to={`/photo/${id}`}>
+        <div>
+          {titre}
+        </div>
+      </Link>
     </Wrapper>
   );
 }

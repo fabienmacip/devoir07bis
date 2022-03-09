@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CardPhoto from "./CardPhoto";
-import CatButton from "./CatButton";
+//import CatButton from "./CatButton";
 
 // Utilisation de Contentful CMS
 import {useEffect, useState} from 'react';
@@ -22,18 +22,18 @@ export default function Galerie() {
   const fetchPhotos = async () => {
     const data = await getPhotos();
     setPhotos(data);
+    console.log(data)
     setIsLoading(false);
   }
 
   // Génération de la liste des catégories
   const tabCat = () => {
-    const tab1 = photos.map((val) => val.categorie[0]);
+    const tab1 = photos.map((val) => val.fields.categorie[0]);
     const tabCatOK = tab1.filter((val, ind, arr) => arr.indexOf(val) === ind);
     return tabCatOK;
   }
 
   const handleFiltreCategorie = (e) => {
-    //console.log(e.target.value)
     setFiltreCategories(e.target.value)
   }
 
@@ -60,8 +60,8 @@ export default function Galerie() {
 
         
         { isLoading ? "loading" : photos.filter((i) => {
-          return filtreCategories === "all" ? i.titre !== "" : i.categorie[0] === filtreCategories 
-        }).map((obj,index) => <CardPhoto key={index} titre={obj.titre} url={obj.photo.fields.file.url} />) 
+          return filtreCategories === "all" ? i.fields.titre !== "" : i.fields.categorie[0] === filtreCategories 
+        }).map((obj,index) => <CardPhoto key={index} id={obj.sys.id} titre={obj.fields.titre} url={obj.fields.photo.fields.file.url} />) 
         }
 
       </Grid>

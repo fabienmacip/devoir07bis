@@ -7,6 +7,7 @@ import Home from "components/Home";
 import Tarif from "components/Tarif";
 import Contact from "components/Contact";
 import Galerie from "components/Galerie";
+import Photo from "components/Photo";
 
 export default function App() {
   return (  
@@ -14,6 +15,7 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/galerie" element={<Galerie />}></Route>
+          <Route path="/photo/:id" element={<Photo />}></Route>
           <Route path="/tarif" element={<Tarif />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/" element={<Home />}></Route>

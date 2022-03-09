@@ -19,7 +19,7 @@ const useContentful = () => {
       });
 
       const sanitizedEntries = entries.items.map((item) => {
-        const photo = item.fields;
+        const photo = item;
         return photo;
       });
       return sanitizedEntries;
@@ -29,6 +29,27 @@ const useContentful = () => {
     }
     
   }; // FIN getPhotos
+
+  const getPhoto = async (id) => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "photo",
+        select: "fields"
+        //order: "titre" // , "fields.titre": "Bébé"
+      });
+
+      const sanitizedEntries = entries.items.filter((i) => i.sys.id === id).map((item) => {
+        const photo = item;
+        return photo;
+      });
+      return sanitizedEntries;
+
+    } catch (error) {
+      console.log(`Erreur lors de la récupération des photos : ${error}`);
+    }
+    
+  }; // FIN getPhoto
+
 
   const getTarifs = async () => {
     try {
@@ -71,7 +92,7 @@ const useContentful = () => {
   }; // FIN getTarifs
 
 
-  return { getPhotos, getTarifs, getHomePage };//
+  return { getPhotos, getPhoto, getTarifs, getHomePage };//
 
 };
 export default useContentful;
