@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-export default function CardPhoto({id,url,description}) {
+export default function CardPhoto({id,url,titre}) {
   
   
   return (
     <Wrapper key={id}>
       <div>
-        <img src={url} alt={description}/>
+        <img src={url} alt={titre}/>
       </div>
       <div>
-        {description}
+        {titre}
       </div>
     </Wrapper>
   );

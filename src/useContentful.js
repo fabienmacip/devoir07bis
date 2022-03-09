@@ -10,32 +10,32 @@ const useContentful = () => {
     host: "preview.contentful.com"
   });
   
-  const getCategories = async () => {
+  const getPhotos = async () => {
     try {
       const entries = await client.getEntries({
-        content_type: "categorie",
+        content_type: "photo",
         select: "fields"
         //order: "titre" // , "fields.titre": "Bébé"
       });
 
       const sanitizedEntries = entries.items.map((item) => {
-        const categorie = item.fields;
+        const photo = item.fields;
 
-        return categorie;
+        return photo;
         //{
-          //...item, categorie
-          //categorie
+          //...item, photo
+          //photo
         //};
       });
       return sanitizedEntries;
 
     } catch (error) {
-      console.log(`Erreur lors de la récupération des catégories ${error}`);
+      console.log(`Erreur lors de la récupération des photos : ${error}`);
     }
     
   };
 
-  return { getCategories };//
+  return { getPhotos };//
 
 };
 export default useContentful;

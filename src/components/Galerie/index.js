@@ -11,17 +11,25 @@ import useContentful from '../../useContentful';
 export default function Galerie() {
   
   const [isLoading, setIsLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-  const { getCategories } = useContentful();
+  const [photos, setPhotos] = useState([]);
+  const { getPhotos } = useContentful();
+  
 
   useEffect(() => {
-    fetchCategories()
+    fetchPhotos()
   }, []);  
 
-  const fetchCategories = async () => {
-    const data = await getCategories();
-    setCategories(data);
+  const fetchPhotos = async () => {
+    const data = await getPhotos();
+    setPhotos(data);
     setIsLoading(false);
+  }
+
+  // Génération de la liste des catégories
+  const tabCat = () => {
+    const tab1 = photos.map((val) => val.categorie[0]);
+    const tabCatOK = tab1.filter((val, ind, arr) => arr.indexOf(val) === ind);
+    return tabCatOK;
   }
 
   return (
@@ -31,16 +39,25 @@ export default function Galerie() {
       </h1>
 
 <br/><br/><div>
-{isLoading ? "loading" : categories.map((cat,index) => <CatButton key={index} titre={cat.titre} />)}
+
+{isLoading ? "loading" : console.log(tabCat())}
+
+
+{ isLoading ? "loading" : tabCat().map((cat,index) => <CatButton key={index} titre={cat} />) }
+
 
 </div><br/><br/>
 
       <Grid>
-        <CardPhoto id="1" url="uploads/bebe.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
+      {/* isLoading ? "loading" : photos.map((cat,index) => <CatButton key={index} titre={cat.categorie} />)  */}
+        { isLoading ? "loading" : console.log(photos) }
+        { isLoading ? "loading" : photos.map((obj,index) => <CardPhoto key={index} titre={obj.titre} url={obj.photo.fields.file.url} />) }
+
+        {/* <CardPhoto id="1" url="uploads/bebe.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
         <CardPhoto id="1" url="uploads/couple.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
         <CardPhoto id="1" url="uploads/famille.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
         <CardPhoto id="1" url="uploads/grossesse.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
-        <CardPhoto id="1" url="uploads/mariage.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" />
+        <CardPhoto id="1" url="uploads/mariage.jpg" description="Faites-vous plaisir avec un souvenir inoubliable de votre anniversaire" /> */}
       </Grid>
 
        
