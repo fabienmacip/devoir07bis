@@ -20,12 +20,7 @@ const useContentful = () => {
 
       const sanitizedEntries = entries.items.map((item) => {
         const photo = item.fields;
-
         return photo;
-        //{
-          //...item, photo
-          //photo
-        //};
       });
       return sanitizedEntries;
 
@@ -33,9 +28,30 @@ const useContentful = () => {
       console.log(`Erreur lors de la récupération des photos : ${error}`);
     }
     
-  };
+  }; // FIN getPhotos
 
-  return { getPhotos };//
+  const getTarifs = async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "tarif",
+        select: "fields"
+        //order: "titre" // , "fields.titre": "Bébé"
+      });
+
+      const sanitizedEntries = entries.items.map((item) => {
+        const tarifs = item.fields;
+        return tarifs;
+      });
+      
+      console.log(sanitizedEntries)
+      return sanitizedEntries;
+
+    } catch (error) {
+      console.log(`Erreur lors de la récupération des tarifs : ${error}`);
+    }
+  }; // FIN getTarifs
+
+  return { getPhotos, getTarifs };//
 
 };
 export default useContentful;
