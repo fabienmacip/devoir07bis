@@ -34,8 +34,8 @@ const useContentful = () => {
     try {
       const entries = await client.getEntries({
         content_type: "tarif",
-        select: "fields"
-        //order: "titre" // , "fields.titre": "Bébé"
+        select: "fields",
+        order: "fields.ordreDaffichage" // , "fields.titre": "Bébé"
       });
 
       const sanitizedEntries = entries.items.map((item) => {
@@ -43,7 +43,6 @@ const useContentful = () => {
         return tarifs;
       });
       
-      console.log(sanitizedEntries)
       return sanitizedEntries;
 
     } catch (error) {
