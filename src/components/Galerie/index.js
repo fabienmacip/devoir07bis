@@ -90,8 +90,19 @@ const ContentGalerie = styled.div`
 `;
 
 const Buttons = styled.div`
-  background-color: red;
+  
   padding: 1rem;
+  text-align: center;
+  & button {
+    border-radius: 5px;
+    margin: 0.3rem;
+    width: 7rem;
+  }
+
+  @media(max-width: 900px) {
+   
+    text-align: left;
+  }
 `;
 
 
@@ -107,18 +118,20 @@ const Grid = styled.div`
   
   @media(max-width: 1360px) {
     grid-template-columns: 1fr 1fr;  
+    
     }
 
   
 
   @media(max-width: 860px) {
+    
     /* width: 300px;
     height: 300px; */
   }
 
   @media(max-width: 900px) {
     grid-template-columns: 1fr;  
+   
   }
-
-
 `;
+

@@ -9,14 +9,31 @@ export default function Contact() {
         Contact
       </h1>
       <div>
-        <FormContact />
+        <div>
+          <FormContact />
+        </div>      
+
+        
       </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  & p {
-    margin: 12px;
+
+width: 90%;
+
+& div {
+
+  display: flex;
+  justify-content: center;
+  width: auto;
+  
+}
+
+@media(max-width: 860px) {
+  & div {
+    width: 100%;
   }
+}
 `;

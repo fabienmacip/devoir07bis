@@ -28,7 +28,7 @@ export default function Home() {
     <Wrapper>
       <HomeDiv>
       <HomeTitle>
-      {isLoading ? "Charles Cantin<br/>-<br/>Capteur de souvenirs" : homePage[0].titre}
+      {isLoading ? "" : homePage[0].titre}
         
       </HomeTitle>
       
@@ -55,6 +55,7 @@ const HomeDiv = styled.div`
     width: 100%;
     height: 100%;
   }
+
 `;
 
 const HomeTitle = styled.div`
@@ -74,5 +75,15 @@ const HomeTitle = styled.div`
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   max-width: 40%;
+
+  @media(max-width: 900px) {
+    font-size: 2rem;
+    max-width: 80%;
+   }
+
+   @media(max-width: 640px) {
+    font-size: 1.7rem;
+    max-width: 80%;
+   }
 `;
 

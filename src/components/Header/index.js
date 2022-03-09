@@ -7,9 +7,10 @@ export default function Header() {
   //console.log(location);
   return (
     <Wrapper>
-      <h1>
-        Application REACT
-      </h1>
+      <div>
+        <img src="/uploads/logo.jpg" alt="logo Charles Cantin" id="logo" />
+      </div>
+      
       <nav>
         <MenuEl isCurrentPage={location.pathname === "/"}><Link to="/">Home</Link></MenuEl>
         <MenuEl isCurrentPage={location.pathname === "/galerie"}><Link to="/galerie">Galerie</Link></MenuEl>
@@ -41,6 +42,8 @@ const Wrapper = styled.header`
   & a:visited, a:link {
     color: ${(props) => props.theme.mainColor};
   }
+
+  margin-bottom: 1rem;
 
 `;
 

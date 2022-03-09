@@ -11,10 +11,10 @@ function FormContact() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="form-contact">
     <label htmlFor="email">
       Votre adresse mail
-    </label>
+    </label><br />
     <input
       id="email"
       type="email" 
@@ -25,19 +25,27 @@ function FormContact() {
       field="email"
       errors={state.errors}
     />
+    <br /><br />
+    <label htmlFor="message">
+      Votre message
+    </label><br />
     <textarea
       id="message"
       name="message"
       label="Votre message"
+      rows="10"
+      maxlength="1000"      
     />
     <ValidationError 
       prefix="Message" 
       field="message"
       errors={state.errors}
-    />
-    <button type="submit" disabled={state.submitting}>
-      Submit
-    </button>
+    /><br /><br />
+    <div>
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </div>
   </form>
 );
 }

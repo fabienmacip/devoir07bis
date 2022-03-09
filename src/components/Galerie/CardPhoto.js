@@ -10,7 +10,7 @@ export default function CardPhoto({id,url,titre}) {
         <div>
           <img src={url} alt={titre}/>
         </div>
-          <div>
+          <div className="titre-photo-galerie">
             {titre}
           </div>
       </Link>
@@ -39,9 +39,13 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.mainColor};
   }
 
+  @media(max-width: 900px) {
+    width: 90%;
+   
+  }
+
  @media(max-width: 640px) {
-    width: 300px;
-    
+    width: 96%;
   }
 
 

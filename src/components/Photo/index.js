@@ -34,7 +34,7 @@ export default function Photo() {
       
       <Link to='/galerie'>
       <h1>
-        { isLoading ? "loading" : photo[0].fields.titre }
+        &lt;&lt; { isLoading ? "loading" : photo[0].fields.titre }
       </h1>
         <div>
           { isLoading ? "loading" : <img src={photo[0].fields.photo.fields.file.url} alt={photo[0].fields.titre} />}
@@ -50,5 +50,19 @@ const Wrapper = styled.div`
 display: flex;
 align-items: start;
  */
+
+& a:visited, a:link {
+  color: ${(props) => props.theme.mainColor};
+}
+
+& img {
+  width: 100%;
+}
+
+@media(max-width: 640px) {
+ & h1 {
+   font-size: 1.4rem;
+ }
+}
 
 `;

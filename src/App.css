@@ -61,3 +61,36 @@ nav {
 h1 {
 	margin-bottom: 1rem;
 }
+
+#logo {
+	width: 115px;
+	border-radius: 3px;
+	border: 1px solid white;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+#form-contact input, #form-contact textarea{
+	width: 400px;
+}
+
+@media(max-width: 640px) {
+	#form-contact input, #form-contact textarea{
+		width: 300px;
+	}
+}
+
+@media(max-width: 380px) {
+	#form-contact input, #form-contact textarea{
+		width: 200px;
+	}
+}
+
+.titre-photo-galerie {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+

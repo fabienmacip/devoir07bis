@@ -43,9 +43,11 @@ export default function Tarif() {
 }
 
 const Wrapper = styled.div`
+  margin-bottom: 4rem;
+
   & p {
-    margin: 12px;
-  }
+      margin: 12px;
+    }
 `;
 
 const Grid = styled.div`
