@@ -34,7 +34,7 @@ function FormContact() {
       name="message"
       label="Votre message"
       rows="10"
-      maxlength="1000"      
+      maxLength="1000"      
     />
     <ValidationError 
       prefix="Message" 

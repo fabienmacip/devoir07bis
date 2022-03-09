@@ -76,9 +76,36 @@ h1 {
 	width: 400px;
 }
 
+#burger-div{
+	text-align: right;
+}
+
+
+#burger-img {
+	width: 40px;
+}
+
+#burger-menu-links{
+	display:none;
+	/*opacity: 0;*/
+	
+}
+
+@media(min-width: 640px) {
+	#burger-nav {
+		/* visibility: hidden; */
+		display: none;
+	}
+
+}
+
 @media(max-width: 640px) {
 	#form-contact input, #form-contact textarea{
 		width: 300px;
+	}
+
+	#nav {
+		display: none;
 	}
 }
 
@@ -100,3 +127,4 @@ h1 {
 	width: 40px;
 	
 }
+

@@ -22,7 +22,7 @@ export default function Galerie() {
   const fetchPhotos = async () => {
     const data = await getPhotos();
     setPhotos(data);
-    console.log(data)
+    //console.log(data)
     setIsLoading(false);
   }
 
