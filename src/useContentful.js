@@ -50,7 +50,28 @@ const useContentful = () => {
     }
   }; // FIN getTarifs
 
-  return { getPhotos, getTarifs };//
+  const getHomePage = async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "homePage",
+        select: "fields",
+      
+      });
+
+      const sanitizedEntries = entries.items.map((item) => {
+        const homepage = item.fields;
+        return homepage;
+      });
+      
+      return sanitizedEntries;
+
+    } catch (error) {
+      console.log(`Erreur lors de la récupération des données de la Home Page : ${error}`);
+    }
+  }; // FIN getTarifs
+
+
+  return { getPhotos, getTarifs, getHomePage };//
 
 };
 export default useContentful;

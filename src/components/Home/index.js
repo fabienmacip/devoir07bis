@@ -1,18 +1,38 @@
 import styled from "styled-components";
 
+import {useEffect, useState} from 'react';
+import useContentful from "useContentful";
 
 //const list = ["el1","el2","el3","el4"];
 
 export default function Home() {
-  //const {buttonsList} = useSounds();
+  
+  const [homePage, setHomePage] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { getHomePage } = useContentful();
+
+  useEffect(() => {
+    fetchHomePage()
+  }, []);  
+
+  const fetchHomePage = async () => {
+    const data = await getHomePage();
+    setHomePage(data);
+    setIsLoading(false);
+  }
+
+
+
   return (
     <Wrapper>
       <HomeDiv>
       <HomeTitle>
-        Bienvenue chez<br/>Charles Cantin<br/>-<br/>Photographe professionnel et artiste
+      {isLoading ? "Charles Cantin<br/>-<br/>Capteur de souvenirs" : homePage[0].titre}
+        
       </HomeTitle>
       
-      <img src="uploads/photographe.jpg" alt="photographe"/>
+      {isLoading ? "..." : <img src={homePage[0].photo.fields.file.url} alt="photographe" />}
 
       </HomeDiv>
        

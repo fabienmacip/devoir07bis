@@ -15,7 +15,6 @@ export default function Header() {
         <MenuEl isCurrentPage={location.pathname === "/galerie"}><Link to="/galerie">Galerie</Link></MenuEl>
         <MenuEl isCurrentPage={location.pathname === "/tarif"}><Link to="/tarif">Tarifs</Link></MenuEl>
         <MenuEl isCurrentPage={location.pathname === "/contact"}><Link to="/contact">Contact</Link></MenuEl>
-        <MenuEl isCurrentPage={location.pathname === "/about"}><Link to="/about">A propos</Link></MenuEl>
       </nav>
 
         
