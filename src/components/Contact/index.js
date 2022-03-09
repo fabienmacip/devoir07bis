@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import FormContact from '../forms/FormContact';
+
 
 export default function Contact() {
   return (
@@ -6,9 +8,9 @@ export default function Contact() {
       <h1>
         Contact
       </h1>
-      <p>
-        Formulaire contact
-      </p>
+      <div>
+        <FormContact />
+      </div>
     </Wrapper>
   )
 }

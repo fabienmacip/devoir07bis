@@ -3,6 +3,7 @@
 npm install --save styled-components
 npm install react-router-dom
 npm install contentful
+npm i @formspree/react
 
 # Getting Started with Create React App
 
