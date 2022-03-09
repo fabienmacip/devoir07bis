@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
 import { SPACE_KEY, TOKEN_KEY } from "./secret.js";
-//accessToken: "GYfFIIpoNlxFXn8pPlZTA9ETAIGFjcRbM31RXLD8v74", // PRODUCTION
+
 //host: "cdn.contentful.com" // PRODUCTION
 
 const useContentful = () => {
