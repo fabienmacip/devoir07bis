@@ -86,6 +86,9 @@ h1 {
 	#form-contact input, #form-contact textarea{
 		width: 200px;
 	}
+	.logos-reseaux-sociaux {
+		width: 30px;
+	}
 }
 
 .titre-photo-galerie {
@@ -93,4 +96,7 @@ h1 {
 	margin-bottom: 0.5rem;
 }
 
-
+.logos-reseaux-sociaux {
+	width: 40px;
+	
+}
