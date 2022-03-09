@@ -19,8 +19,6 @@ export default function Tarif() {
     const data = await getTarifs();
     setTarifs(data);
     setIsLoading(false);
-    
-    
   }
 
   
@@ -52,16 +50,20 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   
   grid-template-columns: 1fr 1fr;
   column-gap: 12px;
   row-gap: 12px; 
   margin: auto;
 
+  @media(max-width: 980px) {
+    grid-template-columns: 1fr;
+    
+  }
+
  @media(max-width: 640px) {
-    width: 300px;
-    height: 300px;
+    
   }
 `;

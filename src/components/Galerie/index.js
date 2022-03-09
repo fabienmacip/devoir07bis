@@ -37,69 +37,86 @@ export default function Galerie() {
     setFiltreCategories(e.target.value)
   }
 
+
+
+
   return (
     <Wrapper id="wrapper-galerie">
-      <h1>
-        Galerie photos
-      </h1>
+      <ContentGalerie>
+        <h1>
+          Galerie photos
+        </h1>
 
-<br/><br/><div>
-
-
-
-<div>
-<button type="submit" key={"all"} onClick={handleFiltreCategorie} value="all">Tout</button>
-{ isLoading ? "loading" : tabCat().map((cat,index) => <button type="submit" key={index} value={cat} onClick={handleFiltreCategorie}>{cat}</button>) }
-
-</div>
+        <br/><br/><div>
 
 
-</div><br/><br/>
 
-      <Grid>
+        <Buttons>
+        <button type="submit" key={"all"} onClick={handleFiltreCategorie} value="all">Tout</button>
+        { isLoading ? "loading" : tabCat().map((cat,index) => <button type="submit" key={index} value={cat} onClick={handleFiltreCategorie}>{cat}</button>) }
 
-        
-        { isLoading ? "loading" : photos.filter((i) => {
-          return filtreCategories === "all" ? i.fields.titre !== "" : i.fields.categorie[0] === filtreCategories 
-        }).map((obj,index) => <CardPhoto key={index} id={obj.sys.id} titre={obj.fields.titre} url={obj.fields.photo.fields.file.url} />) 
-        }
+        </Buttons>
 
-      </Grid>
 
+        </div><br/><br/>
+
+        <Grid>
+
+          
+          { isLoading ? "loading" : photos.filter((i) => {
+            return filtreCategories === "all" ? i.fields.titre !== "" : i.fields.categorie[0] === filtreCategories 
+          }).map((obj,index) => <CardPhoto key={index} id={obj.sys.id} titre={obj.fields.titre} url={obj.fields.photo.fields.file.url} />) 
+          }
+
+        </Grid>
+
+
+      </ContentGalerie>
        
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-/* width: 100%;
+ width: 100%;
 display: flex;
-align-items: start;
- */
+justify-content: center;
+
+margin-bottom: 1rem;
+`;
+
+const ContentGalerie = styled.div`
 
 `;
+
+const Buttons = styled.div`
+  background-color: red;
+  padding: 1rem;
+`;
+
 
 const Grid = styled.div`
 
   display: grid;
-  width: 400px;
-  height: 400px;
-  
+  width: 95%;
+    
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 12px;
   row-gap: 12px; 
   margin: auto;
   
-  @media(max-width: 1260px) {
+  @media(max-width: 1360px) {
     grid-template-columns: 1fr 1fr;  
     }
 
+  
+
   @media(max-width: 860px) {
-    width: 300px;
-    height: 300px;
+    /* width: 300px;
+    height: 300px; */
   }
 
-  @media(max-width: 640px) {
+  @media(max-width: 900px) {
     grid-template-columns: 1fr;  
   }
 

@@ -37,6 +37,11 @@ const Wrapper = styled.header`
   & a:first-child {
     /*margin-right: 16px;*/
   }
+
+  & a:visited, a:link {
+    color: ${(props) => props.theme.mainColor};
+  }
+
 `;
 
 const MenuEl = styled.p`

@@ -6,13 +6,13 @@ export default function CardPhoto({id,url,titre}) {
   
   return (
     <Wrapper key={id}>
-      <div>
-        <img src={url} alt={titre}/>
-      </div>
       <Link to={`/photo/${id}`}>
         <div>
-          {titre}
+          <img src={url} alt={titre}/>
         </div>
+          <div>
+            {titre}
+          </div>
       </Link>
     </Wrapper>
   );
@@ -20,18 +20,29 @@ export default function CardPhoto({id,url,titre}) {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   width: 400px;
-  height: 400px;
-  
+  justify-content: center;
+
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 0.3rem;
+  background-color: ${(props) => props.theme.backgroundColorLight};
+
   margin: auto;
 
   & img {
-    width: 90%;
+    width: 100%;
+  }
+
+  & a:visited, a:link {
+    color: ${(props) => props.theme.mainColor};
   }
 
  @media(max-width: 640px) {
     width: 300px;
-    height: 300px;
+    
   }
+
+
 `;
